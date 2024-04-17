@@ -41,7 +41,7 @@ router.post('/signup',async(req,res) =>{
     }
 })
 
-router.post('/login', async (req, res) => { //login endpoint
+router.post('/login', async (req, res) => { 
     try {
 
         const searchUser = await User.findOne({ Email: req.body.Email })
@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => { //login endpoint
                     res.json({token})
                 }
                 else {
-                    res.status(401).json({ error: "Wrong Password" }); // Return a JSON error object
+                    res.status(401).json({ error: "Wrong Password" }); 
                 }
 
             } catch (error) {
@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => { //login endpoint
 
     } catch (error) {
         console.log(req.body)
-        res.status(400).send(error); // Send back any error occurred during saving
+        res.status(400).send(error); 
     }
 })
 
@@ -107,10 +107,10 @@ router.post('/reset',async(req,res)=>{
             service: 'gmail',
             port: 465,
             secure: true,
-            debug: true, // for debugging purposes
+            debug: true, 
             auth: {
               user: 'chints.rsg@gmail.com',
-              pass: 'xlvn gmlw mgry txiu', // replace with your app password
+              pass: 'xlvn gmlw mgry txiu', 
             },
           });
           

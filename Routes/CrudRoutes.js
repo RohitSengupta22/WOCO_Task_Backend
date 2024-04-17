@@ -13,16 +13,16 @@ router.patch('/edit/:id', async (req, res) => {
         const { FirstName, LastName } = req.body;
         const userId = req.params.id;
 
-        // Check if FirstName and LastName are provided
+        
         if (!FirstName || !LastName) {
             return res.status(400).json({ error: "Both FirstName and LastName are required." });
         }
 
-        // Find the user by ID and update their FirstName and LastName
+      
         const user = await User.findByIdAndUpdate(
             userId,
             { FirstName, LastName },
-            { new: true } // To return the updated document
+            { new: true } 
         );
 
         if (!user) {
@@ -75,10 +75,10 @@ router.post('/add',async(req,res)=>{
             service: 'gmail',
             port: 465,
             secure: true,
-            debug: true, // for debugging purposes
+            debug: true, 
             auth: {
               user: 'chints.rsg@gmail.com',
-              pass: 'xlvn gmlw mgry txiu', // replace with your app password
+              pass: 'xlvn gmlw mgry txiu', 
             },
           });
           
